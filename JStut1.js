@@ -53,3 +53,55 @@ function hi() {
 hi()
 
 // if you do not use var then the variable automatically becomes global 
+// in 3 == '3' it return true as str is converted to num 
+
+// JS objects
+// somewhat like a python dictionary in property:value format
+
+var Dog = {
+    "name": "ubuntu",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["everything"]
+}
+
+// Using . notation to access the properties
+
+nameDog = Dog.name
+console.log(nameDog)
+
+// alternatively we use [] notation if the propertly name has a space
+// in it for eg
+
+var school = {
+    "school name": "DPS",
+    "college name": "BITS"
+}
+    
+console.log(school["college name"])
+
+// You can assign a variable name to property name and use it 
+// eg 
+var schname = "school name"
+school[schname]
+
+// you can change the property by using . notation
+// also we can add a property by . notation
+
+delete Dog.tails // deletes the property
+
+// to check if object has a property we use .hasOwnProperty
+
+console.log(Dog.hasOwnProperty(name))
+
+// you can have an array of objects as well
+// as well as nested objects
+
+// the math lib has useful nuf functions
+
+// to convert string to integer 
+parseInt("56")  // returns NaN if not able to convert
+
+// let helps you to not redeclare a same variable
+
+// object.freeze() totally blocks any method to mutate a variable
