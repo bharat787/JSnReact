@@ -3,29 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-// shifting components and the importing 
-// helps in organisation
-import MyInfo from "./MyInfo.js"
 
-// using components
-function MyApp() {
-  return (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-    </ul>
-  )
-}
-// for multiple elements use <div><div/>
-
+// to convert from JSX to JS we use {} to incorporate
+// JS code
 
 ReactDOM.render(
-  //<React.StrictMode>
-   // <App />
- // </React.StrictMode>,
- <MyInfo/>, 
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
