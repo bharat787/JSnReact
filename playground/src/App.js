@@ -20,17 +20,22 @@ class App extends React.Component {
       this.state = {
         answer: "NO",
         num: 0,
-        isLoading: true
+        isLoading: false,
+        character: {}
       }
       this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                isLoading: false
-            })
-        }, 1500 )
+        this.setState({isLoading: true})
+        fetch("https://geek-jokes.sameerkumar.website/api")
+        .then(response => response.json()
+        .then(data => {
+          this.setState( {
+            character: data,
+            isLoading: false
+          })
+        }))
     }
     
     handleClick() {
@@ -44,11 +49,12 @@ class App extends React.Component {
     render() {
       let wordDisplay
       if (this.state.answer === "yes") {
-        wordDisplay = "yes"
+        wordDisplay = "ye"
       }
       else {
-        wordDisplay = "No"
+        wordDisplay = this .state.character.data
       }
+      console.log(this.state.character.data)
     // all style or constants can go here before return
     // const style = this.yourMethodHere()
       return (
@@ -58,6 +64,7 @@ class App extends React.Component {
           <h2>{this.state.num}</h2>
           <p>click the button to see state change</p>
           <button onClick={this.handleClick}>Change</button>
+          <p>{this.state.character.data}</p>
         </div>
     );
   }
